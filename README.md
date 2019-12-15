@@ -1,21 +1,31 @@
-## Intro
+# YOLO-Object-Counting-API
+Real time Object Counting api. Implemented with the [YOLO](https://arxiv.org/pdf/1612.08242.pdf) algorithm and with the [SORT](https://arxiv.org/pdf/1703.07402.pdf) algorithm
 
-[![Build Status](https://travis-ci.org/thtrieu/darkflow.svg?branch=master)](https://travis-ci.org/thtrieu/darkflow) [![codecov](https://codecov.io/gh/thtrieu/darkflow/branch/master/graph/badge.svg)](https://codecov.io/gh/thtrieu/darkflow)
+The implementation is using model in same format as darkflow and darknet. Weight files, as well as cfg files can be found [here](http://pjreddie.com/darknet/yolo/). Darklow supports only YOLOv1 and YOLOv2. Support for YOLOv3 has not yet been implemented.
 
-Real-time object detection and classification. Paper: [version 1](https://arxiv.org/pdf/1506.02640.pdf), [version 2](https://arxiv.org/pdf/1612.08242.pdf).
+In order to achieve the best performance, you should have Cuda and tensorflow-gpu installed on Your device. 
 
-Read more about YOLO (in darknet) and download weight files [here](http://pjreddie.com/darknet/yolo/). In case the weight file cannot be found, I uploaded some of mine [here](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU), which include `yolo-full` and `yolo-tiny` of v1.0, `tiny-yolo-v1.1` of v1.1 and `yolo`, `tiny-yolo-voc` of v2.
-
-
+## Demo
+### Count objects of a specified class crossing a virtual line
 See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 <p align="center"> <img src="demo.gif"/> </p>
 
+### Count objects on a video
+
+### Count objects on a single frame
+
+# Set up
 ## Dependencies
 
-Python3, tensorflow 1.0, numpy, opencv 3.
+```
+-Python3
+-tensorflow 1.0
+-numpy
+- opencv 3
+```
 
-### Getting started
+## Getting started
 
 You can choose _one_ of the following three ways to get started with darkflow.
 
@@ -34,12 +44,20 @@ You can choose _one_ of the following three ways to get started with darkflow.
     pip install .
     ```
 
-## Update
+## Required files
 
-**Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
+### .cfg files
+```bash
+wget 
+```
+### .weights files
+```bash
+wget 
+```
+### labels.txt files
 
-**I am looking for help:**
- - `help wanted` labels in issue track
+
+
 
 ## Parsing the annotations
 
@@ -273,5 +291,18 @@ Also, darkflow supports loading from a `.pb` and `.meta` file for generating pre
 flow --pbLoad built_graph/yolo.pb --metaLoad built_graph/yolo.meta --imgdir sample_img/
 ```
 If you'd like to load a `.pb` and `.meta` file when using `return_predict()` you can set the `"pbLoad"` and `"metaLoad"` options in place of the `"model"` and `"load"` options you would normally set.
+
+
+## Credits
+
+The YOLO Object counting API, is based on the YOLO and SORT algorithms. In this project as an YOLO implementation we use darkflow
+
+## Authors
+* [tugot17](https://github.com/tugot17)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
+
 
 That's all.
