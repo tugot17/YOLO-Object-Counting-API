@@ -48,11 +48,11 @@ You can choose _one_ of the following three ways to get started with darkflow.
 
 ### .cfg files
 ```bash
-wget 
+wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov2.cfg -O cfg/yolov2.cfg
 ```
 ### .weights files
 ```bash
-wget 
+wget https://pjreddie.com/media/files/yolov2.weights -O bin/yolov2.weights
 ```
 ### labels.txt files
 
