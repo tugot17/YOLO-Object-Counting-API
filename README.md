@@ -1,11 +1,10 @@
 ## Intro
 
-[![Build Status](https://travis-ci.org/thtrieu/darkflow.svg?branch=master)](https://travis-ci.org/thtrieu/darkflow) [![codecov](https://codecov.io/gh/thtrieu/darkflow/branch/master/graph/badge.svg)](https://codecov.io/gh/thtrieu/darkflow)
 
-Real-time object detection and classification. Paper: [version 1](https://arxiv.org/pdf/1506.02640.pdf), [version 2](https://arxiv.org/pdf/1612.08242.pdf).
+# YOLO-Object-Counting-API
+Real time Object Counting api. Implemented with the [YOLO](https://arxiv.org/pdf/1612.08242.pdf) algorithm and with the [SORT](https://arxiv.org/pdf/1703.07402.pdf) algorithm
 
-Read more about YOLO (in darknet) and download weight files [here](http://pjreddie.com/darknet/yolo/). In case the weight file cannot be found, I uploaded some of mine [here](https://drive.google.com/drive/folders/0B1tW_VtY7onidEwyQ2FtQVplWEU), which include `yolo-full` and `yolo-tiny` of v1.0, `tiny-yolo-v1.1` of v1.1 and `yolo`, `tiny-yolo-voc` of v2.
-
+The implementation is using model in same format as darkflow and darknet. Weight files, as well as cfg files can be found [here](http://pjreddie.com/darknet/yolo/). Darklow supports only YOLOv1 and YOLOv2. Support for YOLOv3 has not yet been implemented.
 
 See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
@@ -13,7 +12,12 @@ See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
 ## Dependencies
 
-Python3, tensorflow 1.0, numpy, opencv 3.
+```
+-Python3
+-tensorflow 1.0
+-numpy
+- opencv 3
+```
 
 ### Getting started
 
@@ -33,13 +37,6 @@ You can choose _one_ of the following three ways to get started with darkflow.
     ```
     pip install .
     ```
-
-## Update
-
-**Android demo on Tensorflow's** [here](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/TensorFlowYoloDetector.java)
-
-**I am looking for help:**
- - `help wanted` labels in issue track
 
 ## Parsing the annotations
 
