@@ -72,8 +72,12 @@ This file is list of classes detected by a YOLO netowork. It shoud contain as ma
 
 
 ## Credits
-
+##
 The YOLO Object counting API, is based on the YOLO and SORT algorithms. In this project as an YOLO implementation we use darkflow
+
+## Images and Videos sources
+Highway surveillance[video](https://www.youtube.com/watch?v=PJ5xXXcfuTc)
+Pedestrian surveillance [video](https://www.youtube.com/watch?v=aUdKzb4LGJI)
 
 ## Authors
 * [tugot17](https://github.com/tugot17)
