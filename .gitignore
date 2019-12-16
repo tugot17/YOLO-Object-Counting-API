@@ -44,3 +44,9 @@ ckpt/*
 
 #pytest cache
 .cache/
+
+.idea/YOLO_Object_Counting_API.iml
+
+.idea/
+
+*.so
