@@ -9,7 +9,7 @@ In order to achieve the best performance, you should have Cuda and tensorflow-gp
 ### Count objects of a specified class crossing a virtual line
 See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
-<p align="center"> <img src="demo.gif"/> </p>
+<p align="center"> <img src="the_output.gif"/> </p>
 
 ### Count objects on a video
 
