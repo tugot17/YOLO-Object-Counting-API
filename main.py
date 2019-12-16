@@ -3,7 +3,7 @@ import cv2
 from sort import *
 
 
-options = {"model": "cfg/yolov2-tiny.cfg", "load": "cfg/yolov2-tiny.weights", "threshold" : 0.4, "gpu" : 1.0, "labels": "cfg/labels.txt"}
+options = {"model": "cfg/yolov2.cfg", "load": "bin/yolov2.weights", "threshold" : 0.4, "gpu" : 1.0}
 tfnet = TFNet(options)
 COLORS = np.random.randint(0, 255, size=(200, 3),
     dtype="uint8")
@@ -21,7 +21,7 @@ line = [(line_x1, line_y1), (line_x2, line_y2)]
 counter = 0
 
 
-VIDEO_PATH = "input/vehicle_survaillance.mp4"
+VIDEO_PATH = "/home/piotr/Downloads/python-traffic-counter-with-yolo-and-sort/input/vehicle_survaillance.mp4"
 
 cap = cv2.VideoCapture(VIDEO_PATH)
 
@@ -43,7 +43,7 @@ while(cap.isOpened()):
 
     reslts = tfnet.return_predict(frame)
 
-    reslts = list(filter(lambda res: res["label"] == "Car", reslts))
+    reslts = list(filter(lambda res: res["label"] == "car", reslts))
 
     dets = []
 
