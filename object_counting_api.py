@@ -72,7 +72,7 @@ class ObjectCountingAPI:
             results.append((start_point, end_point, label, confidence))
         return results, labels_quantities_dic
 
-    def count_objects_on_image(self, frame, targeted_classes=[], output_path="output.jpg", show=False):
+    def count_objects_on_image(self, frame, targeted_classes=[], output_path="count_people_output.jpg", show=False):
         objects = self.tfnet.return_predict(frame)
 
         if targeted_classes:
