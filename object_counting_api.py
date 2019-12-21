@@ -217,14 +217,12 @@ if __name__ == '__main__':
     options = {"model": "cfg/yolov2.cfg", "load": "bin/yolov2.weights", "threshold": 0.5, "gpu": 1.0}
 
     img = cv2.imread("sample_inputs/united_nations.jpg")
-    VIDEO_PATH = "/home/piotr/Downloads/python-traffic-counter-with-yolo-and-sort/input/vehicle_survaillance.mp4"
 
-    VIDEO_PATH = "/home/piotr/Downloads/Alibi ALI-IPU3030RV IP Camera Highway Surveillance(1).mp4"
+    VIDEO_PATH = "sample_inputs/highway_traffic.mp4"
 
-    # cap = cv2.VideoCapture(0)
-    # cap = cv2.VideoCapture(VIDEO_PATH)
+    cap = cv2.VideoCapture(VIDEO_PATH)
 
     counter = ObjectCountingAPI(options)
 
-    # counter.count_objects_crossing_the_virtual_line(cap, line_begin=(100, 300), line_end=(320, 250), show=True)
-    counter.count_objects_on_image(img, targeted_classes=["person"], show=True)
+    counter.count_objects_crossing_the_virtual_line(cap, line_begin=(100, 300), line_end=(320, 250), show=True)
+    # counter.count_objects_on_image(img, targeted_classes=["person"], show=True)
