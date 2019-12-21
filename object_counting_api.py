@@ -4,10 +4,17 @@ from utils import COLORS, intersect, get_output_fps_height_and_width
 import cv2
 import numpy as np
 
-LINE_THICKNESS = 1
-FONT = cv2.FONT_HERSHEY_SIMPLEX
-FONT_SIZE = 0.5
-FONT_THICKNESS = 2
+DETECTION_FRAME_THICKNESS = 1
+
+OBJECTS_ON_FRAME_COUNTER_FONT = cv2.FONT_HERSHEY_SIMPLEX
+OBJECTS_ON_FRAME_COUNTER_FONT_SIZE = 0.5
+
+
+LINE_COLOR = (0, 0, 255)
+LINE_THICKNESS = 3
+LINE_COUNTER_FONT = cv2.FONT_HERSHEY_DUPLEX
+LINE_COUNTER_FONT_SIZE = 2.0
+LINE_COUNTER_POSITION = (20, 45)
 
 
 class ObjectCountingAPI:
@@ -25,8 +32,8 @@ class ObjectCountingAPI:
                 frame,
                 f"{label}: {quantity}",
                 (10, (i + 1) * 35),
-                FONT,
-                FONT_SIZE,
+                OBJECTS_ON_FRAME_COUNTER_FONT,
+                OBJECTS_ON_FRAME_COUNTER_FONT_SIZE,
                 color,
                 2,
                 cv2.FONT_HERSHEY_SIMPLEX,
@@ -40,9 +47,9 @@ class ObjectCountingAPI:
 
             color = [int(c) for c in COLORS[class_id % len(COLORS)]]
 
-            cv2.rectangle(frame, start_point, end_point, color, LINE_THICKNESS)
+            cv2.rectangle(frame, start_point, end_point, color, DETECTION_FRAME_THICKNESS)
 
-            cv2.putText(frame, label, (x1, y1 - 5), FONT, FONT_SIZE, color, FONT_THICKNESS)
+            cv2.putText(frame, label, (x1, y1 - 5), OBJECTS_ON_FRAME_COUNTER_FONT, OBJECTS_ON_FRAME_COUNTER_FONT_SIZE, color, 2)
 
     def _convert_detections_into_list_of_tuples_and_count_quantity_of_each_label(self, objects):
         labels_quantities_dic = {}
@@ -87,7 +94,6 @@ class ObjectCountingAPI:
 
         # return frame, objects
 
-
     def count_objects_on_video(self, cap, targeted_classes=[], output_path="the_output.avi", show=False):
         ret, frame = cap.read()
 
@@ -122,15 +128,12 @@ class ObjectCountingAPI:
         cap.release()
         cv2.destroyAllWindows()
 
-    def count_objects_crossing_the_virtual_line(self, cap, line_begin, line_end, targeted_classes=[], output_path="the_output.avi",
-                                                show=False):
+    def count_objects_crossing_the_virtual_line(self, cap, line_begin, line_end, targeted_classes=[],
+                                                output_path="the_output.avi", show=False):
 
         ret, frame = cap.read()
 
-        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        fps = int(cap.get(cv2.CAP_PROP_FPS))
-
+        fps, height, width = get_output_fps_height_and_width(cap)
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         output_movie = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
 
@@ -150,7 +153,7 @@ class ObjectCountingAPI:
             results, _ = self._convert_detections_into_list_of_tuples_and_count_quantity_of_each_label(
                 objects)
 
-            #convert to format required for dets [x1, y1, x2, y2, confidence]
+            # convert to format required for dets [x1, y1, x2, y2, confidence]
             dets = [[*start_point, *end_point] for (start_point, end_point, label, confidence) in results]
 
             np.set_printoptions(formatter={'float': lambda x: "{0:0.3f}".format(100)})
@@ -173,9 +176,8 @@ class ObjectCountingAPI:
                     (x, y) = (int(box[0]), int(box[1]))
                     (w, h) = (int(box[2]), int(box[3]))
 
-
                     color = [int(c) for c in COLORS[indexIDs[i] % len(COLORS)]]
-                    cv2.rectangle(frame, (x, y), (w, h), color, 2)
+                    cv2.rectangle(frame, (x, y), (w, h), color, DETECTION_FRAME_THICKNESS)
 
                     if indexIDs[i] in previous:
                         previous_box = previous[indexIDs[i]]
@@ -192,9 +194,10 @@ class ObjectCountingAPI:
                     cv2.putText(frame, text, (x, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
                     i += 1
 
-            cv2.line(frame, line[0], line[1], (0, 255, 255), 5)
+            cv2.line(frame, line[0], line[1], LINE_COLOR, LINE_THICKNESS)
 
-            cv2.putText(frame, str(counter), (100, 200), cv2.FONT_HERSHEY_DUPLEX, 5.0, (0, 255, 255), 10)
+            cv2.putText(frame, str(counter), LINE_COUNTER_POSITION, LINE_COUNTER_FONT, LINE_COUNTER_FONT_SIZE,
+                        LINE_COLOR, 2)
 
             output_movie.write(frame)
 
@@ -213,14 +216,15 @@ class ObjectCountingAPI:
 if __name__ == '__main__':
     options = {"model": "cfg/yolov2.cfg", "load": "bin/yolov2.weights", "threshold": 0.5, "gpu": 1.0}
 
-    img = cv2.imread("samples/sample_people.jpg")
+    img = cv2.imread("sample_inputs/united_nations.jpg")
     VIDEO_PATH = "/home/piotr/Downloads/python-traffic-counter-with-yolo-and-sort/input/vehicle_survaillance.mp4"
 
     VIDEO_PATH = "/home/piotr/Downloads/Alibi ALI-IPU3030RV IP Camera Highway Surveillance(1).mp4"
 
     # cap = cv2.VideoCapture(0)
-    cap = cv2.VideoCapture(VIDEO_PATH)
+    # cap = cv2.VideoCapture(VIDEO_PATH)
 
     counter = ObjectCountingAPI(options)
 
-    counter.count_objects_crossing_the_virtual_line(cap, line_begin=(50, 300), line_end=(400, 200), show=True)
+    # counter.count_objects_crossing_the_virtual_line(cap, line_begin=(100, 300), line_end=(320, 250), show=True)
+    counter.count_objects_on_image(img, targeted_classes=["person"], show=True)
