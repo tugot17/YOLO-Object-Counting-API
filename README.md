@@ -9,7 +9,7 @@ In order to achieve the best performance, you should have Cuda and tensorflow-gp
 ### Count objects of a specified class crossing a virtual line
 See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
 
-<p align="center"> <img src="demo.gif"/> </p>
+<p align="center"> <img src="the_output.gif"/> </p>
 
 ### Count objects on a video
 
@@ -72,8 +72,13 @@ This file is list of classes detected by a YOLO netowork. It shoud contain as ma
 
 
 ## Credits
-
+##
 The YOLO Object counting API, is based on the YOLO and SORT algorithms. In this project as an YOLO implementation we use darkflow
+
+## Images and Videos sources
+Highway surveillance [video](https://www.youtube.com/watch?v=PJ5xXXcfuTc)
+
+Pedestrian surveillance [video](https://www.youtube.com/watch?v=aUdKzb4LGJI)
 
 ## Authors
 * [tugot17](https://github.com/tugot17)
