@@ -106,8 +106,6 @@ The following open source projects were used in the implementation
 
 The YOLO algorithm impementation  - [Darkflow](https://github.com/thtrieu/darkflow)
 
-https://github.com/thtrieu/darkflow
-
 ### Deep Sort 
 Object tracking and counting - [SORT](https://github.com/abewley/sort)
 
