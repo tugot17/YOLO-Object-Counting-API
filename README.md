@@ -7,12 +7,14 @@ In order to achieve the best performance, you should have Cuda and tensorflow-gp
 
 ## Demo
 ### Count objects of a specified class crossing a virtual line
-#### Highway traffic counting
 
-<p align="center"> <img src="inputs/highway_traffic_output.gif"/> </p>
 
 #### Counting pedestrains 
 <p align="center"> <img src="inputs/pedestrians_output.gif"/> </p>
+
+#### Highway traffic counting
+
+<p align="center"> <img src="inputs/highway_traffic_output.gif"/> </p>
 
 ### Count objects on a video
 
