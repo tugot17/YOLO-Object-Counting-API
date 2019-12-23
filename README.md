@@ -106,6 +106,10 @@ The following open source projects were used in the implementation
 
 The YOLO algorithm impementation  - [Darkflow](https://github.com/thtrieu/darkflow)
 
+### Python Traffic Counter
+
+[Object counting with YOLO and SORT](https://github.com/bharath5673/python-traffic-counter-with-yolo-and-sort). Similar project, but instead of using the darklow YOLO implementation, it uses the opencv YOLO implementation, so there is no GPU acceleration.
+
 ### Deep Sort 
 Object tracking and counting - [SORT](https://github.com/abewley/sort)
 
