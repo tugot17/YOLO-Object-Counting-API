@@ -7,13 +7,21 @@ In order to achieve the best performance, you should have Cuda and tensorflow-gp
 
 ## Demo
 ### Count objects of a specified class crossing a virtual line
-See demo below or see on [this imgur](http://i.imgur.com/EyZZKAA.gif)
+#### Highway traffic counting
 
-<p align="center"> <img src="the_output.gif"/> </p>
+<p align="center"> <img src="inputs/highway_traffic_output.gif"/> </p>
+
+#### Counting pedestrains 
+<p align="center"> <img src="inputs/pedestrians_output.gif"/> </p>
 
 ### Count objects on a video
 
+<p align="center"> <img src="inputs/count_objects_on_video.gif"/> </p>
+
 ### Count objects on a single frame
+
+<p align="center"> <img src="inputs/count_people_output.jpg"/> </p>
+
 
 # Set up
 ## Dependencies
@@ -69,11 +77,38 @@ wget https://pjreddie.com/media/files/yolov2.weights -O bin/yolov2.weights
 
 This file is list of classes detected by a YOLO netowork. It shoud contain as many classes as it is specyfied in a .cfg file. 
 
+## Run counting
 
+Object counting is carried out by an ObjectCuntingAPI object. 
+
+Examples of counting below
+
+### Count cars on crosing a virtual line 
+```bash
+python3 count_cars_crosing_virtual_line.py
+```
+
+### Count objects on video from Video Camera 
+```bash
+python3 count_objects_from_camera.py
+```
+
+### Count people on image 
+```bash
+python3 count_people_on_image.py
+```
 
 ## Credits
-##
-The YOLO Object counting API, is based on the YOLO and SORT algorithms. In this project as an YOLO implementation we use darkflow
+The following open source projects were used in the implementation
+
+### Darkflow
+
+The YOLO algorithm impementation  - [Darkflow](https://github.com/thtrieu/darkflow)
+
+https://github.com/thtrieu/darkflow
+
+### Deep Sort 
+Object tracking and counting - [SORT](https://github.com/abewley/sort)
 
 ## Images and Videos sources
 Highway surveillance [video](https://www.youtube.com/watch?v=PJ5xXXcfuTc)
