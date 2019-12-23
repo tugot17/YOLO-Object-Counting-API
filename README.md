@@ -80,7 +80,7 @@ This file is list of classes detected by a YOLO netowork. It shoud contain as ma
 
 ## Run counting
 
-Object counting is carried out by an ObjectCuntingAPI object. 
+Once You have all dependencies instaled and all required files You can start counting objects. Object counting is carried out by an ObjectCuntingAPI object.
 
 Examples of counting below
 
