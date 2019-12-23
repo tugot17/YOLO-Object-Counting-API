@@ -29,7 +29,6 @@ In order to achieve the best performance, you should have Cuda and tensorflow-gp
 ## Dependencies
 
 ```
--Python3
 -tensorflow 1.0
 -numpy
 -opencv 3
@@ -46,12 +45,12 @@ You can choose _one_ of the following three ways to get started with darkflow.
 
 2. Let pip install darkflow globally in dev mode (still globally accessible, but changes to the code immediately take effect)
     ```
-    pip install -e .
+    pip3 install -e .
     ```
 
 3. Install with pip globally
     ```
-    pip install .
+    pip3 install .
     ```
 
 ## Required files
