@@ -90,25 +90,25 @@ python3 count_cars_crosing_virtual_line.py
 
 ### Count objects on video from Video Camera 
 ```bash
-count_objects_from_camera.py
+python3 count_objects_from_camera.py
 ```
 
 ### Count people on image 
 ```bash
-count_people_on_image.py
+python3 count_people_on_image.py
 ```
 
 ## Credits
-The following open-source solutions has been used:
+The following open source projects were used in the implementation
 
 ### Darkflow
-The YOLO algorithm impementation 
+
+The YOLO algorithm impementation  - [Darkflow](https://github.com/thtrieu/darkflow)
 
 https://github.com/thtrieu/darkflow
 
 ### Deep Sort 
-Object tracking and finding
-https://github.com/abewley/sort
+Object tracking and counting - [SORT](https://github.com/abewley/sort)
 
 ## Images and Videos sources
 Highway surveillance [video](https://www.youtube.com/watch?v=PJ5xXXcfuTc)
