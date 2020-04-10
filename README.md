@@ -123,7 +123,7 @@ Pedestrian surveillance [video](https://www.youtube.com/watch?v=aUdKzb4LGJI)
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details
 
 
 That's all.
